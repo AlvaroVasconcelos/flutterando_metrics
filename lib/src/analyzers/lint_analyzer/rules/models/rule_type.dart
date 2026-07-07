@@ -9,4 +9,6 @@ class RuleType {
   static const intl = RuleType._('intl');
   static const angular = RuleType._('angular');
   static const flame = RuleType._('flame');
+  static const getx = RuleType._('getx');
+  static const getIt = RuleType._('get-it');
 }

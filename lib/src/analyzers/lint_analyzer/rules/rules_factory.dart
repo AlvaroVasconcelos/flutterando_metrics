@@ -1,4 +1,5 @@
 import 'models/rule.dart';
+import 'rules_list/always_remove_getx_listener/always_remove_getx_listener_rule.dart';
 import 'rules_list/always_remove_listener/always_remove_listener_rule.dart';
 import 'rules_list/arguments_ordering/arguments_ordering_rule.dart';
 import 'rules_list/avoid_banned_imports/avoid_banned_imports_rule.dart';
@@ -10,11 +11,14 @@ import 'rules_list/avoid_double_slash_imports/avoid_double_slash_imports_rule.da
 import 'rules_list/avoid_duplicate_exports/avoid_duplicate_exports_rule.dart';
 import 'rules_list/avoid_dynamic/avoid_dynamic_rule.dart';
 import 'rules_list/avoid_expanded_as_spacer/avoid_expanded_as_spacer_rule.dart';
+import 'rules_list/avoid_functions_in_register_singleton/avoid_functions_in_register_singleton_rule.dart';
+import 'rules_list/avoid_getx_rx_inside_build/avoid_getx_rx_inside_build_rule.dart';
 import 'rules_list/avoid_global_state/avoid_global_state_rule.dart';
 import 'rules_list/avoid_ignoring_return_values/avoid_ignoring_return_values_rule.dart';
 import 'rules_list/avoid_initializing_in_on_mount/avoid_initializing_in_on_mount_rule.dart';
 import 'rules_list/avoid_late_keyword/avoid_late_keyword_rule.dart';
 import 'rules_list/avoid_missing_enum_constant_in_map/avoid_missing_enum_constant_in_map_rule.dart';
+import 'rules_list/avoid_mutable_rx_variables/avoid_mutable_rx_variables_rule.dart';
 import 'rules_list/avoid_nested_conditional_expressions/avoid_nested_conditional_expressions_rule.dart';
 import 'rules_list/avoid_non_ascii_symbols/avoid_non_ascii_symbols_rule.dart';
 import 'rules_list/avoid_non_null_assertion/avoid_non_null_assertion_rule.dart';
@@ -40,6 +44,7 @@ import 'rules_list/check_for_equals_in_render_object_setters/check_for_equals_in
 import 'rules_list/component_annotation_arguments_ordering/component_annotation_arguments_ordering_rule.dart';
 import 'rules_list/consistent_update_render_object/consistent_update_render_object_rule.dart';
 import 'rules_list/correct_game_instantiating/correct_game_instantiating_rule.dart';
+import 'rules_list/dispose_getx_fields/dispose_getx_fields_rule.dart';
 import 'rules_list/double_literal_format/double_literal_format_rule.dart';
 import 'rules_list/format_comment/format_comment_rule.dart';
 import 'rules_list/list_all_equatable_fields/list_all_equatable_fields_rule.dart';
@@ -76,11 +81,13 @@ import 'rules_list/prefer_single_widget_per_file/prefer_single_widget_per_file_r
 import 'rules_list/prefer_static_class/prefer_static_class_rule.dart';
 import 'rules_list/prefer_trailing_comma/prefer_trailing_comma_rule.dart';
 import 'rules_list/prefer_using_list_view/prefer_using_list_view_rule.dart';
+import 'rules_list/proper_getx_super_calls/proper_getx_super_calls_rule.dart';
 import 'rules_list/provide_correct_intl_args/provide_correct_intl_args_rule.dart';
 import 'rules_list/tag_name/tag_name_rule.dart';
 import 'rules_list/use_setstate_synchronously/use_setstate_synchronously_rule.dart';
 
 final _implementedRules = <String, Rule Function(Map<String, Object>)>{
+  AlwaysRemoveGetxListenerRule.ruleId: AlwaysRemoveGetxListenerRule.new,
   AlwaysRemoveListenerRule.ruleId: AlwaysRemoveListenerRule.new,
   ArgumentsOrderingRule.ruleId: ArgumentsOrderingRule.new,
   AvoidBannedImportsRule.ruleId: AvoidBannedImportsRule.new,
@@ -92,12 +99,16 @@ final _implementedRules = <String, Rule Function(Map<String, Object>)>{
   AvoidDoubleSlashImportsRule.ruleId: AvoidDoubleSlashImportsRule.new,
   AvoidDuplicateExportsRule.ruleId: AvoidDuplicateExportsRule.new,
   AvoidDynamicRule.ruleId: AvoidDynamicRule.new,
+  AvoidFunctionsInRegisterSingletonRule.ruleId:
+      AvoidFunctionsInRegisterSingletonRule.new,
+  AvoidGetxRxInsideBuildRule.ruleId: AvoidGetxRxInsideBuildRule.new,
   AvoidGlobalStateRule.ruleId: AvoidGlobalStateRule.new,
   AvoidIgnoringReturnValuesRule.ruleId: AvoidIgnoringReturnValuesRule.new,
   AvoidInitializingInOnMountRule.ruleId: AvoidInitializingInOnMountRule.new,
   AvoidLateKeywordRule.ruleId: AvoidLateKeywordRule.new,
   AvoidMissingEnumConstantInMapRule.ruleId:
       AvoidMissingEnumConstantInMapRule.new,
+  AvoidMutableRxVariablesRule.ruleId: AvoidMutableRxVariablesRule.new,
   AvoidNestedConditionalExpressionsRule.ruleId:
       AvoidNestedConditionalExpressionsRule.new,
   AvoidNonAsciiSymbolsRule.ruleId: AvoidNonAsciiSymbolsRule.new,
@@ -130,6 +141,7 @@ final _implementedRules = <String, Rule Function(Map<String, Object>)>{
       ComponentAnnotationArgumentsOrderingRule.new,
   ConsistentUpdateRenderObjectRule.ruleId: ConsistentUpdateRenderObjectRule.new,
   CorrectGameInstantiatingRule.ruleId: CorrectGameInstantiatingRule.new,
+  DisposeGetxFieldsRule.ruleId: DisposeGetxFieldsRule.new,
   DoubleLiteralFormatRule.ruleId: DoubleLiteralFormatRule.new,
   FormatCommentRule.ruleId: FormatCommentRule.new,
   ListAllEquatableFieldsRule.ruleId: ListAllEquatableFieldsRule.new,
@@ -168,6 +180,7 @@ final _implementedRules = <String, Rule Function(Map<String, Object>)>{
   PreferStaticClassRule.ruleId: PreferStaticClassRule.new,
   PreferTrailingCommaRule.ruleId: PreferTrailingCommaRule.new,
   PreferUsingListViewRule.ruleId: PreferUsingListViewRule.new,
+  ProperGetxSuperCallsRule.ruleId: ProperGetxSuperCallsRule.new,
   ProvideCorrectIntlArgsRule.ruleId: ProvideCorrectIntlArgsRule.new,
   TagNameRule.ruleId: TagNameRule.new,
 };
